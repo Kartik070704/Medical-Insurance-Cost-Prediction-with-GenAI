@@ -7,7 +7,9 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-      - key: GROK_MODEL
+      - key: XAI_MODEL
+        value: grok-4.3
+      - key: GROQ_MODEL
         value: llama-3.1-8b-instant
       - key: XAI_API_KEY
         sync: false
