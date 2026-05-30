@@ -1,0 +1,4 @@
+mae,rmse,r2,mape_percent,model,cv_rmse
+1564.35,1988.4,0.9626,6.98,tuned_ridge,2007.85
+1608.85,2036.57,0.9608,7.18,tuned_gradient_boosting,2065.23
+1685.35,2130.65,0.9571,7.48,tuned_random_forest,2174.46

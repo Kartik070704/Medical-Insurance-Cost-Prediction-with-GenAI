@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Insurance Cost Prediction</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="wizard-card" aria-label="Insurance prediction form">
+      <aside class="illustration-panel" aria-hidden="true">
+        <div class="speech speech-top"><span></span><span></span><span></span></div>
+        <div class="person">
+          <div class="hair"></div>
+          <div class="head"></div>
+          <div class="neck"></div>
+          <div class="torso"></div>
+          <div class="arm arm-left"></div>
+          <div class="arm arm-right"></div>
+          <div class="leg leg-left"></div>
+          <div class="leg leg-right"></div>
+          <div class="shoe shoe-left"></div>
+          <div class="shoe shoe-right"></div>
+        </div>
+        <div class="speech speech-bottom"><span></span><span></span></div>
+        <div class="tree"><span></span></div>
+        <div class="ground"></div>
+      </aside>
+
+      <section class="form-panel">
+        <div class="stepper" aria-label="Form progress">
+          <button class="step active" type="button" data-jump="0" aria-label="Personal information">
+            <span>1</span>
+            <small>Personal</small>
+          </button>
+          <div class="step-line"></div>
+          <button class="step" type="button" data-jump="1" aria-label="Insurance inputs">
+            <span>2</span>
+            <small>Inputs</small>
+          </button>
+          <div class="step-line"></div>
+          <button class="step" type="button" data-jump="2" aria-label="Prediction result">
+            <span>3</span>
+            <small>Prediction</small>
+          </button>
+        </div>
+
+        <form id="predictionForm" novalidate>
+          <section class="form-step active" data-step="0">
+            <h1>Personal Information</h1>
+            <div class="field">
+              <label for="full_name">Full name</label>
+              <input id="full_name" name="full_name" type="text" placeholder="Enter full name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Enter email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Enter phone number" required>
+            </div>
+            <div class="field">
+              <label for="birth_date">Birth date</label>
+              <input id="birth_date" name="birth_date" type="date" required>
+            </div>
+            <div class="actions">
+              <button class="btn btn-secondary" type="reset">Cancel</button>
+              <button class="btn btn-primary" type="button" data-next>Next</button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="1">
+            <h1>Insurance Inputs</h1>
+            <div class="grid">
+              <div class="field">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="number" min="1" max="100" placeholder="35" required>
+              </div>
+              <div class="field">
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex" required>
+                  <option value="">Select</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="bmi">BMI</label>
+                <input id="bmi" name="bmi" type="number" min="10" max="60" step="0.1" placeholder="28.4" required>
+              </div>
+              <div class="field">
+                <label for="children">Children</label>
+                <input id="children" name="children" type="number" min="0" max="10" placeholder="2" required>
+              </div>
+              <div class="field">
+                <label for="smoker">Smoker</label>
+                <select id="smoker" name="smoker" required>
+                  <option value="">Select</option>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="region">Region</label>
+                <select id="region" name="region" required>
+                  <option value="">Select</option>
+                  <option value="northeast">Northeast</option>
+                  <option value="northwest">Northwest</option>
+                  <option value="southeast">Southeast</option>
+                  <option value="southwest">Southwest</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="income">Income</label>
+                <input id="income" name="income" type="number" min="0" step="100" placeholder="75000" required>
+              </div>
+              <div class="field">
+                <label for="exercise_frequency">Exercise frequency</label>
+                <input id="exercise_frequency" name="exercise_frequency" type="number" min="0" max="7" placeholder="3" required>
+              </div>
+              <div class="field">
+                <label for="chronic_disease">Chronic disease</label>
+                <select id="chronic_disease" name="chronic_disease" required>
+                  <option value="">Select</option>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="alcohol_consumption">Alcohol consumption</label>
+                <input id="alcohol_consumption" name="alcohol_consumption" type="number" min="0" max="10" placeholder="2" required>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-secondary" type="button" data-back>Back</button>
+              <button class="btn btn-primary" type="submit">Predict</button>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="2">
+            <h1>Prediction Result</h1>
+            <div class="result-card">
+              <span class="result-label">Estimated charges</span>
+              <strong id="predictionValue">--</strong>
+              <span class="result-model">Model: {{ model_name }}</span>
+            </div>
+            <div class="reasoning-card">
+              <small id="reasoningModel">AI reasoning</small>
+              <p id="reasoningText">--</p>
+            </div>
+            <div class="summary-grid">
+              <div>
+                <small>Name</small>
+                <strong id="summaryName">--</strong>
+              </div>
+              <div>
+                <small>Smoker</small>
+                <strong id="summarySmoker">--</strong>
+              </div>
+              <div>
+                <small>BMI</small>
+                <strong id="summaryBmi">--</strong>
+              </div>
+              <div>
+                <small>Age</small>
+                <strong id="summaryAge">--</strong>
+              </div>
+              <div>
+                <small>Saved record</small>
+                <strong id="summaryStorage">--</strong>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-secondary" type="button" data-back>Back</button>
+              <button class="btn btn-primary" type="button" id="startOver">Start Over</button>
+            </div>
+          </section>
+          <p id="formError" class="form-error" role="alert"></p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <script src="../static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "best_tuned_model": "tuned_ridge",
+  "best_tuned_metrics": {
+    "mae": 1564.35,
+    "rmse": 1988.4,
+    "r2": 0.9626,
+    "mape_percent": 6.98,
+    "model": "tuned_ridge",
+    "cv_rmse": 2007.85
+  },
+  "best_params": {
+    "tuned_ridge": {
+      "model__alpha": 0.1
+    },
+    "tuned_random_forest": {
+      "model__max_depth": null,
+      "model__min_samples_leaf": 4,
+      "model__n_estimators": 250
+    },
+    "tuned_gradient_boosting": {
+      "model__learning_rate": 0.05,
+      "model__max_depth": 3,
+      "model__n_estimators": 250
+    }
+  },
+  "all_tuned_models": [
+    {
+      "mae": 1564.35,
+      "rmse": 1988.4,
+      "r2": 0.9626,
+      "mape_percent": 6.98,
+      "model": "tuned_ridge",
+      "cv_rmse": 2007.85
+    },
+    {
+      "mae": 1608.85,
+      "rmse": 2036.57,
+      "r2": 0.9608,
+      "mape_percent": 7.18,
+      "model": "tuned_gradient_boosting",
+      "cv_rmse": 2065.23
+    },
+    {
+      "mae": 1685.35,
+      "rmse": 2130.65,
+      "r2": 0.9571,
+      "mape_percent": 7.48,
+      "model": "tuned_random_forest",
+      "cv_rmse": 2174.46
+    }
+  ]
+}

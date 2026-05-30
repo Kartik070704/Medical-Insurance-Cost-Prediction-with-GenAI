@@ -1,0 +1,33 @@
+{
+  "best_model": "ridge_regression",
+  "best_model_metrics": {
+    "mae": 1564.4,
+    "rmse": 1988.48,
+    "r2": 0.9626,
+    "mape_percent": 6.98,
+    "model": "ridge_regression"
+  },
+  "all_models": [
+    {
+      "mae": 1564.4,
+      "rmse": 1988.48,
+      "r2": 0.9626,
+      "mape_percent": 6.98,
+      "model": "ridge_regression"
+    },
+    {
+      "mae": 1608.85,
+      "rmse": 2036.57,
+      "r2": 0.9608,
+      "mape_percent": 7.18,
+      "model": "gradient_boosting"
+    },
+    {
+      "mae": 1688.27,
+      "rmse": 2133.3,
+      "r2": 0.957,
+      "mape_percent": 7.49,
+      "model": "random_forest"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+mae,rmse,r2,mape_percent,model
+1564.4,1988.48,0.9626,6.98,ridge_regression
+1608.85,2036.57,0.9608,7.18,gradient_boosting
+1688.27,2133.3,0.957,7.49,random_forest

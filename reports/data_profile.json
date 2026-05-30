@@ -1,0 +1,42 @@
+{
+  "rows": 10000,
+  "columns": 11,
+  "column_names": [
+    "age",
+    "sex",
+    "bmi",
+    "children",
+    "smoker",
+    "region",
+    "income",
+    "exercise_frequency",
+    "chronic_disease",
+    "alcohol_consumption",
+    "charges"
+  ],
+  "missing_values": {
+    "age": 0,
+    "sex": 0,
+    "bmi": 0,
+    "children": 0,
+    "smoker": 0,
+    "region": 0,
+    "income": 0,
+    "exercise_frequency": 0,
+    "chronic_disease": 0,
+    "alcohol_consumption": 0,
+    "charges": 0
+  },
+  "duplicate_rows": 0,
+  "target": "charges",
+  "target_summary": {
+    "count": 10000.0,
+    "mean": 26351.82,
+    "std": 10235.1,
+    "min": 5319.81,
+    "25%": 18707.96,
+    "50%": 23974.8,
+    "75%": 32608.04,
+    "max": 62272.66
+  }
+}
