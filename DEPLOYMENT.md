@@ -2,6 +2,17 @@
 
 This app is deployment-ready as a Flask + scikit-learn + Grok API + Neon Postgres project.
 
+## Free Deployment Recommendation
+
+Use this stack for a free final-year demo:
+
+- GitHub for source code.
+- Render Free Web Service for the Flask app.
+- Neon Free Plan for Postgres storage.
+- Groq Cloud free API limits for prediction reasoning.
+
+Render Free Web Services sleep after idle traffic, so the first request after inactivity can take around a minute to start. This is acceptable for a college project demo, but not ideal for production.
+
 ## Required Services
 
 - A deployment platform that supports Python web apps, such as Render, Railway, or Heroku.
