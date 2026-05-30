@@ -57,7 +57,7 @@ function setLoading(isLoading) {
 }
 
 function updateSummary(data) {
-  document.querySelector("#predictionValue").textContent = `$${data.formatted_prediction}`;
+  document.querySelector("#predictionValue").textContent = data.formatted_prediction;
   document.querySelector("#reasoningText").textContent = data.reasoning || "--";
   document.querySelector("#reasoningModel").textContent = `AI reasoning: ${data.reasoning_model || "unknown"}`;
   document.querySelector("#summaryName").textContent = data.personal.full_name || "--";

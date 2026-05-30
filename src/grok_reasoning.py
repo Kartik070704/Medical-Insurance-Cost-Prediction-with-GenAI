@@ -3,6 +3,8 @@ from typing import Any
 
 import requests
 
+from src.currency import format_inr
+
 
 XAI_CHAT_COMPLETIONS_URL = "https://api.x.ai/v1/chat/completions"
 GROQ_CHAT_COMPLETIONS_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -39,7 +41,7 @@ def fallback_reasoning(inputs: dict[str, Any], prediction: float) -> str:
         factors.append("the estimate is mainly driven by the combined profile of age, BMI, lifestyle, and health features")
 
     return (
-        f"The estimated insurance charge is {prediction:,.2f}. "
+        f"The estimated insurance charge is {format_inr(prediction)}. "
         f"The main reasons are: {', '.join(factors)}. "
         "This explanation is generated from the model inputs and should be treated as an estimate, not medical advice."
     )
@@ -48,7 +50,7 @@ def fallback_reasoning(inputs: dict[str, Any], prediction: float) -> str:
 def build_prompt(personal: dict[str, Any], inputs: dict[str, Any], prediction: float, metrics: dict[str, Any]) -> str:
     display_name = personal.get("full_name") or "the user"
     return f"""
-Explain why a medical insurance cost prediction model estimated charges of {prediction:,.2f} for {display_name}.
+Explain why a medical insurance cost prediction model estimated charges of {format_inr(prediction)} for {display_name}.
 
 Model inputs:
 - age: {inputs.get("age")}

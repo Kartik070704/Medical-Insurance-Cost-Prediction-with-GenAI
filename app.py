@@ -9,6 +9,7 @@ from src.database import init_database, save_prediction
 from src.env_loader import load_local_env
 from src.grok_reasoning import generate_reasoning
 from src.config import MODELS_DIR
+from src.currency import format_inr
 
 
 load_local_env()
@@ -110,7 +111,8 @@ def predict():
             {
                 "ok": True,
                 "prediction": round(prediction, 2),
-                "formatted_prediction": f"{prediction:,.2f}",
+                "currency": "INR",
+                "formatted_prediction": format_inr(prediction),
                 "model_name": MODEL_PACKAGE["model_name"],
                 "reasoning_model": reasoning_model,
                 "reasoning": reasoning,

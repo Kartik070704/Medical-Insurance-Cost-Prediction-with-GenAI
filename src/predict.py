@@ -5,6 +5,11 @@ import pandas as pd
 
 from config import MODELS_DIR
 
+try:
+    from src.currency import format_inr
+except ModuleNotFoundError:
+    from currency import format_inr
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Predict medical insurance charges.")
@@ -48,7 +53,7 @@ def main() -> None:
 
     print(f"Model: {model_package['model_name']}")
     print(f"Model file: {model_path.name}")
-    print(f"Predicted insurance charges: {prediction:.2f}")
+    print(f"Predicted insurance charges: {format_inr(prediction, symbol='Rs. ')}")
 
 
 if __name__ == "__main__":
